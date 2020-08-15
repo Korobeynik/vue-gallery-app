@@ -1,25 +1,26 @@
 <template>
-    <div class="slider" :style='{ backgroundImage: "url(" + randomPhoto.urls.regular + ")", }'></div>
+  <div v-if="randomPhoto" class="slider" :style='{ backgroundImage: "url(" + randomPhoto.urls.regular + ")", }'></div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
-export default {
+  import {mapActions, mapGetters} from 'vuex'
+
+  export default {
     name: "Banner",
     methods: {
-        ...mapActions([
-            'getRandomPhoto'
-        ])
+      ...mapActions([
+        'getRandomPhoto'
+      ])
     },
     computed: {
-        ...mapGetters([
-            'randomPhoto'
-        ])
+      ...mapGetters([
+        'randomPhoto'
+      ])
     },
     mounted() {
-        this.getRandomPhoto()
+      this.getRandomPhoto()
     }
-}
+  }
 </script>
 
 <style scoped>
