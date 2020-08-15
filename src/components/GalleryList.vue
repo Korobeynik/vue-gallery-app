@@ -1,18 +1,21 @@
 <template>
-  <div class="gallery-section">
-    <div class="gallery-container">
-      <a class="photo-item"
+  <div class="gallery-section" id="gallery">
+    <div class="gallery-container" v-if="!allPhotos.length == 0">
+      <router-link class="photo-item"
          v-for="photo in allPhotos"
          :key="photo.id"
-         href="/"
+         :to="'/card/' + photo.id"
       >
         <div class="img">
           <img
             :src="photo.urls.regular"
             :alt="photo.alt_description">
         </div>
-      </a>
+      </router-link>
     </div>
+    <p class="error" v-else>
+      No photos found (:
+    </p>
     <div class="loader-box"><span @click="showMore" class="glyphicon glyphicon-refresh loader "></span></div>
   </div>
 </template>
@@ -35,6 +38,7 @@
 
       async showMore () {
         this.page++
+        console.log(this.page)
         this.pageCount = this.pageCount
         console.log()
         try {
@@ -51,7 +55,9 @@
       ])
     },
     mounted() {
-      this.$store.dispatch("fetchPhotos", [this.page, this.pageCount]);
+      if(this.allPhotos.length == 0) {
+        this.$store.dispatch("fetchPhotos", [this.page, this.pageCount]);
+      }
     }
   }
 </script>
@@ -68,5 +74,13 @@
   line-height: 1
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+
+
+.error
+  padding: 30px
+  color: white
+  font-size: 25px
+  text-align: center
+  padding-top: 50px
 
 </style>

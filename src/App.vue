@@ -5,8 +5,6 @@
 </template>
 
 <style lang="sass">
-
 body
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-
 </style>

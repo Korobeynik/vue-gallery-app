@@ -4,19 +4,39 @@
       <img src="@/assets/media/logo.a277d5f5.png">
     </router-link>
     <nav class="menu">
-      <router-link class="item" to="/all/">All</router-link>
-      <router-link class="item" to="/animal/3330452">Animals</router-link>
-      <router-link class="item" to="/films/4694315">Films</router-link>
-      <router-link class="item" to="/food&amp;drink/3330455">Food&amp;Drink</router-link>
-      <router-link class="item" to="/about">Nature</router-link>
+      <a @click.prevent="queryCategory('All')" class="item" to="/All/">All</a>
+      <a @click.prevent="queryCategory('Animals')" class="item" to="/Animals">Animals</a>
+      <a @click.prevent="queryCategory('Films')" class="item" to="/Films">Films</a>
+      <a @click.prevent="queryCategory('Food&amp;Drink')" class="item" to="/Food">Food&amp;Drink</a>
+      <a @click.prevent="queryCategory('Nature')" class="item" to="/Nature">Nature</a>
     </nav>
     <a class="item" href="/login/">Login</a>
   </header>
 </template>
 
 <script>
+  import {mapActions, mapGetters} from 'vuex'
   export default {
-    name: "Header"
+    name: "Header",
+    data () {
+      return {
+        page: 1,
+        pageCount: 15,
+        query: ''
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'allPhotos'
+      ])
+    },
+    methods: {
+      async queryCategory(query) {
+        await this.$store.dispatch("clearAllPhotos");
+        await this.$store.dispatch("categoryRequest", query);
+        await this.$store.dispatch("fetchPhotos", [this.page, this.pageCount]);
+      }
+    }
   }
 </script>
 
