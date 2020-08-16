@@ -38,11 +38,19 @@
     },
     methods: {
       async submitSearch() {
+        const el = document.getElementById('gallery');
+        if (el) {
+          el.scrollIntoView({behavior: "smooth"});
+        }
         await this.$store.dispatch("clearAllPhotos");
         await this.$store.dispatch("categoryRequest", this.searchQuery);
         await this.$store.dispatch("fetchPhotos", [this.page, this.pageCount]);
       },
       async queryCategory(query) {
+        const el = document.getElementById('gallery');
+        if (el) {
+          el.scrollIntoView({behavior: "smooth"});
+        }
         this.searchQuery = ''
         await this.$store.dispatch("clearAllPhotos");
         await this.$store.dispatch("categoryRequest", query);

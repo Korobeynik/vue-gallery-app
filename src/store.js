@@ -7,8 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     randomPhoto: null,
-    //accessKey: 'F4EbR86lTYlL5qtuNP4wBKA0mOOGbTZs4gQ4YJKPunE',
-    accessKey: 'bb5b762fe9143a6445f0a3d30f47c55329c0ddf450c78b884c5026ee78c5bcef',
+    accessKey: 'F4EbR86lTYlL5qtuNP4wBKA0mOOGbTZs4gQ4YJKPunE',
     allPhotos: [],
     user: [],
     query: 'All'

@@ -7,11 +7,10 @@
 <style lang="sass">
   body
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-
   .card
-    nav
+    nav, .form-wrap
       display: none
   .user
-    nav
+    nav, .form-wrap
       display: none
 </style>

@@ -62,6 +62,12 @@
 
 <style lang="sass" scoped>
 
+#gallery
+  min-height: 100vh
+  .gallery-container
+    margin-top: 0
+    padding-top: 100px
+
 .glyphicon
   position: relative
   top: 1px
