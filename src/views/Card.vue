@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <Header />
     <div class="photo-card-section" v-if="card">
       <div @click="$router.go(-1)" class="backTo">back to prev page</div>
@@ -31,7 +31,7 @@
       setUserData() {
         const data = {
           name: this.card.user.name,
-          image: this.card.user.profile_image.medium,
+          image: this.card.user.profile_image.large,
           collections: this.card.user.total_collections,
           totalPhoto: this.card.user.total_photos,
           totalLikes: this.card.user.total_likes
@@ -48,6 +48,7 @@
       }
     },
     mounted() {
+      console.log(this.card)
       if(this.card) {
         this.setUserData()
       }
@@ -55,6 +56,6 @@
   }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
 
 </style>

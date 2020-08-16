@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="user">
     <Header />
     <div class="photo-card-section user-card-section">
       <div @click="$router.go(-1)" class="backTo">back to prev page</div>
@@ -67,10 +67,10 @@
   .user-photo
     width: 100%
     max-width: 300px
-    margin-bottom: 20px
+    margin-bottom: 30px
   .user-information
     width: 100%
-    max-width: 400px
+    max-width: 600px
   .list-group
     color: #262626
     text-align: left

@@ -11,27 +11,12 @@ import Header from "../components/Header"
 import Banner from "../components/Banner"
 import GalleryList from "../components/GalleryList"
 
-import {mapActions, mapGetters} from 'vuex'
-
 export default {
     name: 'home',
     components: {
         Header,
         Banner,
         GalleryList
-    },
-    methods: {
-        ...mapActions([
-
-        ])
-    },
-    computed: {
-        ...mapGetters([
-
-        ])
-    },
-    mounted() {
-
     }
 }
 </script>

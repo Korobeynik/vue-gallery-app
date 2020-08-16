@@ -38,9 +38,7 @@
 
       async showMore () {
         this.page++
-        console.log(this.page)
         this.pageCount = this.pageCount
-        console.log()
         try {
           await this.$store.dispatch("fetchPhotos",[this.page, this.pageCount]);
         } catch (e) {

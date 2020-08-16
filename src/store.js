@@ -46,10 +46,7 @@ export default new Vuex.Store({
     fetchPhotos: async ({commit,state}, [page_payload, pageCount_payload]) => {
       let page = page_payload
       let pageCount = pageCount_payload
-      // let query = 'Films'
-      // let clientId = state.accessKey
       await axios
-      //   .get(`https://api.unsplash.com/search/photos?page=${page}&per_page=${pageCount}&query=${query}&client_id=${clientId}`)
         .get('https://api.unsplash.com/search/photos', {
           params: {
             query: state.query,
@@ -68,11 +65,9 @@ export default new Vuex.Store({
         });
     },
     getUserData({commit}, content) {
-      console.log(content)
       commit('setUserData', content)
     },
     categoryRequest({commit}, content) {
-      console.log(content)
       commit('setCategoryRequest', content)
     },
     clearAllPhotos({commit}) {
